@@ -14,7 +14,23 @@ A hierarchical breakdown of all the sections and pages found on the site. For yo
 ## [Articles](/articles/)
 
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.categories.articles %}
+    {% include post-list.html %}
+  {% endfor %}
+</ul>
+
+## [Notes](/notes/)
+
+<ul>
+  {% for post in site.categories.notes %}
+    {% include post-list.html %}
+  {% endfor %}
+</ul>
+
+## [CTF Writeup](/ctf/)
+
+<ul>
+  {% for post in site.categories.ctf %}
     {% include post-list.html %}
   {% endfor %}
 </ul>

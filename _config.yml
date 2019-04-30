@@ -115,14 +115,12 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:thomas@yzavard.fr
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
     - label: "RootMe"
+      icon: "fa fa-fw fa-lock"
       url: "https://www.root-me.org/Thyz"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+    #- label: "HackTheBox"
+    #  icon: "fa fa-fw fa-cube"
+    #  url: "https://www.hackthebox.eu/home/users/profile/106328"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thyzavard"
@@ -133,9 +131,6 @@ footer:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:thomas@yzavard.fr
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thyzavard"
@@ -278,9 +273,20 @@ defaults:
     values:
       layout: single
       read_time: true
+      related: true
       breadcrumbs:
         - label: "Blog articles"
           url: /articles/
+  # Blog Notes
+  - scope:
+      path: _posts/notes
+      type: posts
+    values:
+      layout: single
+      read_time: true
+      breadcrumbs:
+        - label: "Blog notes"
+          url: /notes/
   # CTF Write up
   - scope:
       path: _posts/ctf
