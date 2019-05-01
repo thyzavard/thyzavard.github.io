@@ -6,7 +6,9 @@ main:
     url: "/notes/"
   - title: "CTF"
     url: /ctf/
-  - title: "About"
+  - title: "Resume"
+    url: "/resume/"
+  - title: "About me"
     url: /about/
   - title: "Contact"
     url: /contact/

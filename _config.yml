@@ -124,6 +124,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thyzavard"
+    - label: LinkedIn
+      icon: "fab fa-fw fa-linkedin-in"
+      url: "https://linkedin.com/in/thomas-yzavard"
 
 # Site Footer
 footer:
@@ -135,6 +138,7 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thyzavard"
     - label: "Sitemap"
+      icon: "far fa-fw fa-map"
       url: "/sitemap/"
 
 

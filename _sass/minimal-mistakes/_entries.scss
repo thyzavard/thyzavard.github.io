@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Entries (Posts, collection documents, etc.)
+   ========================================================================== */
+
+.entry {
+  position: relative;
+  margin-bottom: 3em;
+  max-width: 35em;
+}
+
+.entry__title {
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1.25;
+
+  a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.entry__meta {
+  margin-bottom: 0.5;
+  //font-family: $monospace-font;
+  font-size: ms(-2);
+  text-transform: uppercase;
+
+  *:not(:first-child) {
+    &::before {
+      content: ' · ';
+    }
+  }
+}
+
+.entry__image {
+  margin-bottom: 1em;
+}
+
+.entry__excerpt {
+  a {
+    position: relative;
+    z-index: 5;
+  }
+}
