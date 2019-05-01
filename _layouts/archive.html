@@ -12,7 +12,9 @@ layout: default
       <h1 id="page-title" class="page__title">{{ page.title }}</h1>
     {% endunless %}
 
+    {% if page.introduction %}
     {{ page.introduction | markdownify }}
+    {% endif %}
 
     {{ content }}
 

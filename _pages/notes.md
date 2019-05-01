@@ -2,7 +2,7 @@
 layout: archive
 permalink: /notes/
 title: &title "Notes"
-excerpt: &excerpt "A collection of thoughts, inspiration, mistakes, and other long-form minutia I've written. For smaller, more regular tidbits --- peruse the [notes section](/notes/)."
+excerpt: &excerpt "A collection of all my notes."
 introduction: *excerpt
 pagination: 
   enabled: true
