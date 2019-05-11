@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Thomas's Notes"
 title_separator          : "-"
 name                     : "Thomas Yzavard"
-description              : "An amazing website."
+description              : "Personal webiste where I write about my notes, about new technologies and CTF."
 url                      : "https://blog.yzavard.fr" 
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "Thomas Yzavard"
   avatar           : "/assets/images/avatar.png"
-  bio              : "IT French Student"
+  bio              : #"IT French Student"
   location         : # "France"
   email            :
   links:
