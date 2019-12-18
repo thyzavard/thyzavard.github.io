@@ -12,20 +12,20 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "dark", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Thomas's Notes"
-title_separator          : "-"
-name                     : "Thomas Yzavard"
-description              : "Personal webiste where I write about my notes, about new technologies and CTF."
-url                      : "https://blog.yzavard.fr" 
+title                    : "Thomza • Personal blog"
+title_separator          : "•"
+name                     : "Thomza • Personal blog"
+description              : #"Personal webiste where I write about my notes, about new technologies and CTF."
+url                      : #"https://blog.yzavard.fr" 
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : "Thomas's Notes"
+masthead_title           : "Accueil"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -106,15 +106,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Thomas Yzavard"
+  name             : #"Thomas Yzavard"
   avatar           : "/assets/images/avatar.png"
-  bio              : #"IT French Student"
-  location         : # "France"
+  bio              : "Infosec articles & CTF Writeups"
+  location         : #"France"
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:thomas@yzavard.fr
+#    - label: "Email"
+#      icon: "fas fa-fw fa-envelope-square"
+#      url: mailto:thomas@yzavard.fr
     - label: "RootMe"
       icon: "fa fa-fw fa-lock"
       url: "https://www.root-me.org/Thyz"
@@ -124,16 +124,13 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thyzavard"
-    - label: LinkedIn
-      icon: "fab fa-fw fa-linkedin-in"
-      url: "https://linkedin.com/in/thomas-yzavard"
 
 # Site Footer
 footer:
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:thomas@yzavard.fr
+#    - label: "Email"
+#      icon: "fas fa-fw fa-envelope-square"
+#      url: mailto:thomas@yzavard.fr
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thyzavard"
@@ -270,38 +267,34 @@ compress_html:
 
 # Defaults
 defaults:
-  # Blog Articles
-  - scope:
-      path: _posts/articles
-      type: posts
-    values:
-      layout: single
-      read_time: true
-      related: true
-      breadcrumbs:
-        - label: "Blog articles"
-          url: /articles/
-  # Blog Notes
-  - scope:
-      path: _posts/notes
-      type: posts
-    values:
-      layout: single
-      read_time: true
-      breadcrumbs:
-        - label: "Blog notes"
-          url: /notes/
   # CTF Write up
   - scope:
       path: _posts/ctf
       type: posts
     values:
       layout: single
-      read_time: true
-      related: true
       breadcrumbs:
         - label: "CTF Writeup"
           url: /ctf/
+  # Blog Articles
+  - scope:
+      path: _posts/articles
+      type: posts
+    values:
+      layout: single
+      breadcrumbs:
+        - label: "Blog articles"
+          url: /articles/
+  # Wiki
+  - scope:
+      path: _posts/wiki
+      type: posts
+    values:
+      layout: single
+      breadcrumbs:
+        - label: "Wiki"
+          url: /wiki/
+
   # _pages
   - scope:
       path: ""

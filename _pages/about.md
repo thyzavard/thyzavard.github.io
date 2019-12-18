@@ -1,9 +1,5 @@
 ---
 permalink: /about/
-title: "About me"
-excerpt: "About me"
+title: "À Propos"
+excerpt: "À Propos"
 ---
-```
-$ whoami
-thomas yzavard
-```

@@ -1,12 +1,13 @@
 # main links
 main:
+  - title: "Write-ups"
+    url: /ctf/
   - title: "Articles"
     url: /articles/
-  - title: "Notes"
-    url: "/notes/"
-  - title: "CTF"
-    url: /ctf/
+  - title: "Wiki"
+    url: "/wiki/"
+
   #- title: "Resume"
   #  url: "/resume/"
-  - title: "About me"
+  - title: "À Propos"
     url: /about/
