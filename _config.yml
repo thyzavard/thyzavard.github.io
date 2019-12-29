@@ -217,6 +217,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll/twemoji
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -273,7 +274,6 @@ defaults:
       type: posts
     values:
       layout: single
-      share: true
       breadcrumbs:
         - label: "CTF Writeup"
           url: /ctf/
