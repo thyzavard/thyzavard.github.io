@@ -1,6 +1,6 @@
 ---
 title: Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job
-excerpt: Voici le tout premier test!
+excerpt: Step 3 des pré-qualifications du Capture the FIC
 tags: [CTF, Capture.The.FIC FIC 2019, writeup]
 categories: ctf
 classes: wide
