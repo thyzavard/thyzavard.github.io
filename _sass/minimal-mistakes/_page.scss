@@ -21,17 +21,17 @@
 
 .page {
   @include breakpoint($large) {
-    float: right;
-    width: calc(100% - #{$right-sidebar-width-narrow});
+    width: 100%;
     padding-right: $right-sidebar-width-narrow;
   }
 
   @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
+    width: 100%;
     padding-right: $right-sidebar-width;
   }
 
   .page__inner-wrap {
+    padding: 2%;
     float: left;
     margin-top: 1em;
     margin-left: 0;

@@ -273,6 +273,7 @@ defaults:
       type: posts
     values:
       layout: single
+      share: true
       breadcrumbs:
         - label: "CTF Writeup"
           url: /ctf/
