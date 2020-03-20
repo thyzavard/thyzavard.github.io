@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Step 3 des pré-qualifications du Capture the FIC">
+  <meta name="keywords" content="blog and jekyll">
+  <meta name="author" content="Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job | Thomas • Personal blog">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job | Thomas • Personal blog">
+  <meta name="twitter:description" content="Step 3 des pré-qualifications du Capture the FIC">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2019-12/CTF-Capture-the-FIC-step3">
+  <meta property="og:title" content="Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job | Thomas • Personal blog">
+  <meta property="og:description" content="Step 3 des pré-qualifications du Capture the FIC">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job | Thomas • Personal blog</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2019-12/CTF-Capture-the-FIC-step3">
+  <link rel="alternate" type="application/rss+xml" title="Thomas • Personal blog" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/avatar.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">Thomas</a>
+  
+  <span class="author_job">Infosec student</span>
+  
+  
+  <span class="author_bio mbm">CTF write-ups and articles</span>
+  
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/about/">About</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+              
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/thyzavard" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="https://root-me.org/thyz" class="social-link-item" target="_blank"><i class="fa fa-fw fa-lock"></i></a></li>
+    <li><a href="https://www.hackthebox.eu/home/users/profile/106328" class="social-link-item" target="_blank"><i class="fa fa-fw fa-cube"></i></a></li>
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job">Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        20 DEC 2019
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    5 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <p><img src="/img/do_your_forensic_analyst_job_chall.png" alt="Challenge" class="center-image" /></p>
+
+<p>On nous fournis un fichier .raw qui est apparememnt le dump d’une clé USB:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ file image.raw   
+image.raw: DOS/MBR boot sector MS-MBR Windows 7 english at offset 0x163 "Invalid partition table" at offset 0x17b "Error loading operating system" at offset 0x19a "Missing operating system", disk signature 0x47e6da9e; partition 1 : ID=0x7, start-CHS (0x0,2,3), end-CHS (0xc5,3,19), startsector 128, 198656 sectors
+</code></pre></div></div>
+<p>En essayant de simplement monter l’image, on obtient une erreur. Via <code class="language-plaintext highlighter-rouge">fdisk</code>, on récupère les informations nécessaires pour ajuster l’option <code class="language-plaintext highlighter-rouge">offset</code> de la commande <code class="language-plaintext highlighter-rouge">mount</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ fdisk -l image.raw
+Disk image.raw: 100 MiB, 104857600 bytes, 204800 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x47e6da9e
+
+Device     Boot Start    End Sectors Size Id Type
+image.raw1        128 198783  198656  97M  7 HPFS/NTFS/exFAT
+</code></pre></div></div>
+
+<p>On va donc essayer de monter la partition:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mount -o loop,offset=65536 image.raw /mnt/t
+mount: /mnt/t: unknown filesystem type 'BitLocker'.
+</code></pre></div></div>
+<p>Visiblement, il s’agit d’une partition Bitlocker. Pour s’en assurer, on peut vérifier si la signature “<strong>-FVE-FS-</strong>”, correspondant à une partition Bitlocker chiffré est présente dans l’en-tête de l’image:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hexdump -C -s 65536 -n 16 image.raw
+00010000  eb 58 90 2d 46 56 45 2d  46 53 2d 00 02 08 00 00  |.X.-FVE-FS-.....|
+</code></pre></div></div>
+<p>Un autre moyen de vérifier est d’ouvrir l’image avec Gparted:
+<img src="/img/do_your_forensic_analyst_job_gparted.png" alt="Challenge" class="center-image" /></p>
+
+<p>Pour plus de simplicité pour les étapes suivantes, on extrait la partition Bitlocker de l’image:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dd if=image.raw bs=512 skip=128 count=198656 of=bitlocker.img 
+</code></pre></div></div>
+
+<p>Nous allons avoir besoin d’un outil permettant de monter des partitions Bitlocker. Après quelques recherches, nous avons trouvé l’outil <a href="https://github.com/Aorimn/dislocker">Dislocker</a>.<br /></p>
+
+<p>Avant de monter la partition, il faut trouver le mot de passe ou la clé permettant de déchiffrer cette partition.
+Après avoir lu quelques writeups de challenges similaire, nous avons essayé un outil permettant d’effectuer une attaque par dictionnaire sur une partition <a href="https://en.wikipedia.org/wiki/BitLocker">Bitlocker</a>.
+La combinaison de <a href="https://wreckedsecurity.com/encryption-and-data-protection/brute-force-dictionary-attack-against-bitlocker/">Dislocker-dict</a> avec la wordlist <code class="language-plaintext highlighter-rouge">rockyou</code> nous permet de trouver le mot de passe: <code class="language-plaintext highlighter-rouge">password</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./dislocker-dict -v output.img -m /mnt/bitlocker -d rockyou.txt
+dislocker-dict v. 0.1 - Very inefficient way of using dictionary attack against BitLocker
+(C) 2017 Wrecked Security
+Running PASS 1
+123456	 NOT FOUND
+12345	 NOT FOUND
+123456789	 NOT FOUND
+password	 FOUND!
+Partition decryption password is: password
+</code></pre></div></div>
+<p>On monte la partition avec <code class="language-plaintext highlighter-rouge">Dislocker</code> en fournissant le mot de passe. Et on obtient un fichier <code class="language-plaintext highlighter-rouge">dislocker-file</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dislocker -V output.img -upassword /mnt/bitlocker
+$ ls /mnt/bitlocker/
+dislocker-file
+</code></pre></div></div>
+<p>On monte ce fameux fichier <code class="language-plaintext highlighter-rouge">dislocker-file</code> pour avoir accès au système de fichier de la clé USB:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mount /mnt/bitlocker/dislocker-file /mnt/dislock
+</code></pre></div></div>
+<p>On trouve deux fichiers, dont un qui semble contenir le flag:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls /mnt/dislock                  
+flag.txt  'System Volume Information'
+$ cat flag.txt
+Every Forensic investigation starts with a good bitlocker inspection.
+-- @chaignc
+
+Try Harder !
+</code></pre></div></div>
+<p>:thumbsup::thumbsup::thumbsup::thumbsup::thumbsup:<br />
+Nous avons essayé de chercher si le répertoire <code class="language-plaintext highlighter-rouge">System Volume Information</code> pouvait nous être utile à la résolution de ce challenge. Sans succès.<br /><br /></p>
+
+<p>On utilise ensuite la commande <code class="language-plaintext highlighter-rouge">fls</code> afin de lister tous les fichiers présents dans la partition, y compris les fichiers supprimés que l’on repère grâce au caractère <code class="language-plaintext highlighter-rouge">*</code> :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ fls -r /mnt/bitlocker/dislocker-file
+r/r 4-128-4:	$AttrDef
+r/r 8-128-2:	$BadClus
+r/r 8-128-1:	$BadClus:$Bad
+r/r 6-128-4:	$Bitmap
+r/r 7-128-1:	$Boot
+d/d 11-144-4:	$Extend
++ r/r 25-144-2:	$ObjId:$O
++ r/r 24-144-3:	$Quota:$O
++ r/r 24-144-2:	$Quota:$Q
++ r/r 26-144-2:	$Reparse:$R
++ d/d 27-144-2:	$RmMetadata
+++ r/r 28-128-4:	$Repair
+++ r/r 28-128-2:	$Repair:$Config
+++ d/d 30-144-2:	$Txf
+++ d/d 29-144-5:	$TxfLog
++++ r/r 31-128-2:	$Tops
++++ r/r 31-128-4:	$Tops:$T
++++ r/r 32-128-1:	$TxfLog.blf
++++ r/r 33-128-1:	$TxfLogContainer00000000000000000001
++++ r/r 34-128-1:	$TxfLogContainer00000000000000000002
+r/r 2-128-1:	$LogFile
+r/r 0-128-1:	$MFT
+r/r 1-128-1:	$MFTMirr
+r/r 9-128-8:	$Secure:$SDS
+r/r 9-144-11:	$Secure:$SDH
+r/r 9-144-5:	$Secure:$SII
+r/r 10-128-1:	$UpCase
+r/r 3-128-3:	$Volume
+r/r 39-128-1:	flag.txt
+d/d 35-144-6:	System Volume Information
++ r/r 40-128-1:	FVE2.{24e6f0ae-6a00-4f73-984b-75ce9942852d}
++ r/r 36-128-1:	FVE2.{e40ad34d-dae9-4bc7-95bd-b16218c10f72}.1
++ r/r 37-128-1:	FVE2.{e40ad34d-dae9-4bc7-95bd-b16218c10f72}.2
++ r/r 38-128-1:	FVE2.{e40ad34d-dae9-4bc7-95bd-b16218c10f72}.3
++ -/r * 41-128-1:	FVE2.{c9ca54a3-6983-46b7-8684-a7e5e23499e3}
+-/r * 64-128-2:	ls
+-/r * 65-128-2:	fic.zip
+-/r * 66-128-2:	f1.zip
+-/r * 67-128-2:	f2.zip
+-/r * 68-128-2:	f3.zip
+-/r * 69-128-2:	f4.zip
+V/V 256:	$OrphanFiles
+</code></pre></div></div>
+<p>Avec <code class="language-plaintext highlighter-rouge">icat</code>, on peut récupérer un fichier supprimé en fournissant un numéro d’inode: <code class="language-plaintext highlighter-rouge">65-158-2</code> pour le fichier <code class="language-plaintext highlighter-rouge">fic.zip</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ icat -r /mnt/bitlocker/dislocker-file 65-158-2 &gt; fic.zip
+</code></pre></div></div>
+<p>Une autre solution consiste à utiliser <code class="language-plaintext highlighter-rouge">foremost</code> pour récupérer tous les fichiers ayant été supprimés dans la partition:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ foremost -T -i /mnt/bitlocker/dislocker-file -o recovery -t all
+$ tree recovery
+.
+├── audit.txt
+└── zip
+    ├── 00066346.zip
+    ├── 00066348.zip
+    ├── 00066350.zip
+    ├── 00066352.zip
+    ├── 00066354.zip
+    └── fic.txt
+
+1 directory, 7 files
+</code></pre></div></div>
+<p>On va simplement extraire l’archive et lire le contenu du fichier extrait:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$  unzip 00066346.zip 
+Archive:  00066346.zip
+  inflating: fic.txt                 
+</code></pre></div></div>
+<p>Il y a un lien Github Gist:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat fic.txt 
+https://gist.github.com/bosal43833/3e815abc3f92e45963a8aafc8acfe411
+</code></pre></div></div>
+<p>Qui contient le flag en base64:
+<img src="/img/do_your_forensic_analyst_job_gist.png" alt="Gist" class="center-image" />
+:checkered_flag:FLAG:checkered_flag::</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo aHR0cHM6Ly9jdGYuaGV4cHJlc3NvLmZyLzFlYTk2N2Y1MmQxYWFiMzI3ZDA4NGVmZDI0ZDA0OTU3Cg== | base64 --decode
+https://ctf.hexpresso.fr/1ea967f52d1aab327d084efd24d04957
+</code></pre></div></div>
+
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2019-12/CTF-Capture-the-FIC-step3" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+
+        <footer>
+  &copy; 2020 Thomas. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>
