@@ -1,9 +1,8 @@
 ---
 title: Angstrom CTF 2020
-excerpt: This is a description
+excerpt: Solutions des challenges web du Angstrom CTF 2020
 tags: [CTF, Angstrom, writeup, web]
 categories: Write-ups
-classes: wide
 ---
 
 # Web 
