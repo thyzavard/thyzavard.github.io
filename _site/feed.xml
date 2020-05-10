@@ -3,10 +3,10 @@
   <channel>
     <title>Thomas • Personal blog</title>
     <description>A simple and awesome blog theme powered by jekyll.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>2020-05-10</pubDate>
-    <lastBuildDate>Sun, 10 May 2020 14:32:47 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 14:36:57 +0200</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -125,11 +125,11 @@ J’injecte donc ce payload dans ma session en effectuant la requête suivante :
 
 &lt;p&gt;&lt;img src=&quot;/img/fcsc_bestiary_flag.PNG&quot; alt=&quot;FLAG&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Flag &lt;strong&gt;FCSC{83f5d0d1a3c9c82da282994e348ef49949ea4977c526634960f44b0380785622}&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Flag : FCSC{83f5d0d1a3c9c82da282994e348ef49949ea4977c526634960f44b0380785622}&lt;/p&gt;
 </description>
         <pubDate>2020-05-10</pubDate>
-        <link>http://localhost:4000/articles/2020-05/FCSC-2020-bestiary</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2020-05/FCSC-2020-bestiary</guid>
+        <link>/articles/2020-05/FCSC-2020-bestiary</link>
+        <guid isPermaLink="true">/articles/2020-05/FCSC-2020-bestiary</guid>
         
         <category>CTF</category>
         
@@ -687,8 +687,8 @@ Le fonctionnement d’un serveur &lt;code class=&quot;language-plaintext highlig
 &lt;p&gt;Je oublié de prendre un screenshot et de noter le flag lorsque j’ai lancé le script, car comme les serveur sont situés au US, et que je suis basé en EU, le temps de latence est impressionnant et j’ai seulement le temps de marquer 4 points, alors que sur l’instance européenne déployée par les admins du Angstrom j’ai pu marquer plus de 30 points et donc d’avoir le flag.&lt;/p&gt;
 </description>
         <pubDate>2020-05-10</pubDate>
-        <link>http://localhost:4000/articles/2020-03/Angstrom-CTF-web</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2020-03/Angstrom-CTF-web</guid>
+        <link>/articles/2020-03/Angstrom-CTF-web</link>
+        <guid isPermaLink="true">/articles/2020-03/Angstrom-CTF-web</guid>
         
         <category>CTF</category>
         
@@ -855,8 +855,8 @@ https://ctf.hexpresso.fr/1ea967f52d1aab327d084efd24d04957
 
 </description>
         <pubDate>2020-05-10</pubDate>
-        <link>http://localhost:4000/articles/2019-12/CTF-Capture-the-FIC-step3</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2019-12/CTF-Capture-the-FIC-step3</guid>
+        <link>/articles/2019-12/CTF-Capture-the-FIC-step3</link>
+        <guid isPermaLink="true">/articles/2019-12/CTF-Capture-the-FIC-step3</guid>
         
         <category>CTF</category>
         
