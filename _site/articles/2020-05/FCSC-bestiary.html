@@ -165,28 +165,28 @@
   </header>
 
   <article class="post-content">
-    <p><img src="/img/FCSC_logo.png" width="300" class="center-image" />
-Le French CyberSecurity Challenge est une compétition en ligne organisée par l’Agence National de la Sécurité des Systèmes d’Informations (ANSSI). Ce CTF a pour but de préselectionner 30 joueurs: 15 juniors (entre 15 et 20 ans) et 15 seniors (entre 21 et 25 ans).</p>
+    <p><img src="/img/fcsc_logo.png" width="300" class="center-image" />
+Le France CyberSecurity Challenge est une compétition en ligne organisée par l’Agence National de la Sécurité des Systèmes d’Informations (ANSSI). Ce CTF a pour but de préselectionner 30 joueurs: 15 juniors (entre 15 et 20 ans) et 15 seniors (entre 21 et 25 ans).</p>
 <hr />
 
-<p><img src="/img/FCSC_bestiary.png" alt="Challenge" class="center-image" /></p>
+<p><img src="/img/fcsc_bestiary.png" alt="Challenge" class="center-image" /></p>
 
 <p>Bestiary a été mon challenge préféré, l’exploitation de la LFI était très intéressante !</p>
 
 <p>C’est un site où l’on peut simplement effectuer des recherches sur des monstres.</p>
 
-<p><img src="/img/FCSC_home.png" alt="Home" class="center-image" /></p>
+<p><img src="/img/fcsc_home.png" alt="Home" class="center-image" /></p>
 
 <p>On devine assez rapidement que la paramètre ‘monster’ de la requête GET est à injecter.<br />
 On test un payload classique pour voir s’il est possible d’avoir une LFI : <code class="language-plaintext highlighter-rouge">http://challenges2.france-cybersecurity-challenge.fr:5004/index.php?monster=../../../../etc/passwd</code></p>
 
-<p><img src="/img/FCSC_lfi_etc.png" alt="LFI" class="center-image" /></p>
+<p><img src="/img/fcsc_lfi_etc.png" alt="LFI" class="center-image" /></p>
 
 <p>On à donc une LFI :)<br />
 On tente d’afficher le code source avec un filter PHP.
 <code class="language-plaintext highlighter-rouge">http://challenges2.france-cybersecurity-challenge.fr:5004/index.php?monster=php://filter/convert.base64-encode/resource=index.php</code></p>
 
-<p><img src="/img/FCSC_bestiary_base.png" alt="Base" class="center-image" /></p>
+<p><img src="/img/fcsc_bestiary_base.png" alt="Base" class="center-image" /></p>
 
 <p>On décode tout ça en base64 et on obtient le code source la page <code class="language-plaintext highlighter-rouge">index.php</code> :</p>
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
@@ -255,7 +255,7 @@ On tente d’afficher le code source avec un filter PHP.
 <p>Pour accéder à une session, il faut rajouter le préfix <code class="language-plaintext highlighter-rouge">sess_</code> au numéro de session stockées dans notre navigateur.<br />
 <em>Par exemple, j’avais la session c70091bbb2c30521812c43b37040255a, sur le serveur, la session est stockée dans le fichier /sessions/sess_c70091bbb2c30521812c43b37040255a</em></p>
 
-<p><img src="/img/FCSC_bestiary_session.png" alt="Session" class="center-image" /></p>
+<p><img src="/img/fcsc_bestiary_session.png" alt="Session" class="center-image" /></p>
 
 <p>On peut voir le contenu de ma session sur la capture d’écran ci-dessus. <br />
 Comme en PHP, tout fichier inclut via la fonction <code class="language-plaintext highlighter-rouge">include()</code> est traité comme un fichier PHP, on va pouvoir injecter du code PHP dans le cookie PHPSESSID afin de le faire exécuter au serveur lorsque l’on va accéder à la session.</p>
@@ -270,7 +270,7 @@ J’injecte donc ce payload dans ma session en effectuant la requête suivante :
 
 <p>On affiche les sources et voilà !</p>
 
-<p><img src="/img/FCSC_bestiary_flag.png" alt="FLAG" class="center-image" /></p>
+<p><img src="/img/fcsc_bestiary_flag.png" alt="FLAG" class="center-image" /></p>
 
 <p>Flag <code class="language-plaintext highlighter-rouge">FCSC{83f5d0d1a3c9c82da282994e348ef49949ea4977c526634960f44b0380785622}</code></p>
 
