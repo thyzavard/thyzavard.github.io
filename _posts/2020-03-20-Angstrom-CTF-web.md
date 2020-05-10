@@ -3,6 +3,7 @@ title: ångstromCTF 2020
 excerpt: Solutions des challenges web du ångstromCTF 2020
 tags: [CTF, Angstrom, writeup, web]
 categories: Write-ups
+comments: true
 ---
 
 # Web 

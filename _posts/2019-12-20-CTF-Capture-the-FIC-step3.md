@@ -3,6 +3,7 @@ title: Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job
 excerpt: Step 3 des pré-qualifications du Capture the FIC
 tags: [CTF, Capture.The.FIC, forensic, writeup]
 categories: Write-ups
+comments: true
 ---
 
 ![Challenge](/img/do_your_forensic_analyst_job_chall.png){: .center-image}
