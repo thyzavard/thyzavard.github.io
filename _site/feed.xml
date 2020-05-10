@@ -6,7 +6,7 @@
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>2020-05-10</pubDate>
-    <lastBuildDate>Sun, 10 May 2020 14:36:57 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 14:38:45 +0200</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -125,7 +125,9 @@ J’injecte donc ce payload dans ma session en effectuant la requête suivante :
 
 &lt;p&gt;&lt;img src=&quot;/img/fcsc_bestiary_flag.PNG&quot; alt=&quot;FLAG&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Flag : FCSC{83f5d0d1a3c9c82da282994e348ef49949ea4977c526634960f44b0380785622}&lt;/p&gt;
+&lt;p&gt;Flag :&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FCSC{83f5d0d1a3c9c82da282994e348ef49949ea4977c526634960f44b0380785622}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>2020-05-10</pubDate>
         <link>/articles/2020-05/FCSC-2020-bestiary</link>
