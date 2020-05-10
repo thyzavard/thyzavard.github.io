@@ -1,0 +1,30 @@
+[
+  
+    {
+      "title"    : "FCSC 2020 - Web - Bestiary",
+      "category" : "",
+      "excerpt"  : "Write-up du challenge web Bestiary du France Cybersecurity Challenge 2020",
+      "tags"     : "CTF, FCSC, writeup, web",
+      "url"      : "/articles/2020-05/FCSC-bestiary",
+      "date"     : "2020-05-10 00:00:00 +0200"
+    } ,
+  
+    {
+      "title"    : "ångstromCTF 2020",
+      "category" : "",
+      "excerpt"  : "Solutions des challenges web du ångstromCTF 2020",
+      "tags"     : "CTF, Angstrom, writeup, web",
+      "url"      : "/articles/2020-03/Angstrom-CTF-web",
+      "date"     : "2020-03-20 00:00:00 +0100"
+    } ,
+  
+    {
+      "title"    : "Capture.The.FIC 2019 - Forensic - Do you forensic ANALyst job",
+      "category" : "",
+      "excerpt"  : "Step 3 des pré-qualifications du Capture the FIC",
+      "tags"     : "CTF, Capture.The.FIC, forensic, writeup",
+      "url"      : "/articles/2019-12/CTF-Capture-the-FIC-step3",
+      "date"     : "2019-12-20 00:00:00 +0100"
+    } 
+  
+]
