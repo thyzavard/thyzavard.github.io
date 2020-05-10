@@ -9,7 +9,7 @@ comments: true
 ![Challenge](/img/do_your_forensic_analyst_job_chall.png){: .center-image}
 
 
-On nous fournis un fichier .raw qui est apparememnt le dump d'une clé USB:
+On nous fournis un fichier .raw qui est apparemement le dump d'une clé USB:
 ```
 $ file image.raw   
 image.raw: DOS/MBR boot sector MS-MBR Windows 7 english at offset 0x163 "Invalid partition table" at offset 0x17b "Error loading operating system" at offset 0x19a "Missing operating system", disk signature 0x47e6da9e; partition 1 : ID=0x7, start-CHS (0x0,2,3), end-CHS (0xc5,3,19), startsector 128, 198656 sectors
