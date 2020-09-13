@@ -6,11 +6,11 @@
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>2020-09-13</pubDate>
-    <lastBuildDate>Sun, 13 Sep 2020 15:06:21 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 15:10:34 +0200</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
-        <title>Comment rebuild Vim avec Arch Build System</title>
+        <title>Comment recompiler Vim avec Arch Build System</title>
         <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;Un bon matin, j’ai voulu modifier ma configuration &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vim&lt;/code&gt; en ajoutant différents plugins pour me simplifier la vie lors de développement Python, j’ai donc voulu installer le fameux plugin &lt;a href=&quot;https://github.com/ycm-core/YouCompleteMe&quot;&gt;YouCompleteMe&lt;/a&gt; permettant de faire de l’autocomplétion directement dans &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vim&lt;/code&gt;.   &lt;br /&gt;

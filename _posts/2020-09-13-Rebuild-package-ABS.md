@@ -1,6 +1,6 @@
 ---
-title: Comment rebuild Vim avec Arch Build System
-excerpt: Write-up du challenge web Bestiary du France Cybersecurity Challenge 2020
+title: Comment recompiler Vim avec Arch Build System
+excerpt: Utilisation d'Arch Build System pour recompiler un paquet existant pour le modifier et l'adapter à ses besoins.
 tags: [ABS, makepkg, PKGBUILD]
 categories: Articles
 comments: true

@@ -1,9 +1,9 @@
 [
   
     {
-      "title"    : "Comment rebuild Vim avec Arch Build System",
+      "title"    : "Comment recompiler Vim avec Arch Build System",
       "category" : "",
-      "excerpt"  : "Write-up du challenge web Bestiary du France Cybersecurity Challenge 2020",
+      "excerpt"  : "Utilisation d&#39;Arch Build System pour recompiler un paquet existant pour le modifier et l&#39;adapter à ses besoins.",
       "tags"     : "ABS, makepkg, PKGBUILD",
       "url"      : "/articles/2020-09/Rebuild-package-ABS",
       "date"     : "2020-09-13 00:00:00 +0200"
