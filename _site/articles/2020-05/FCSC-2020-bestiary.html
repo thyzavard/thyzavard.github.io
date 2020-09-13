@@ -213,17 +213,17 @@ On tente d’afficher le code source avec un filter PHP.</p>
 
 <span class="nt">&lt;p&gt;</span>
 <span class="cp">&lt;?php</span>
-	<span class="nv">$monster</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+	<span class="nv">$monster</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">;</span>
 
-	<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">]))</span>
+	<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nb">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">]))</span>
 		<span class="nv">$monster</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">];</span>
-	<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">]))</span>
+	<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nb">empty</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">]))</span>
 	<span class="p">{</span>
 		<span class="nv">$monster</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">];</span>
 		<span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'monster'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$monster</span><span class="p">;</span>
 	<span class="p">}</span>
 
-	<span class="k">if</span><span class="p">(</span><span class="nv">$monster</span> <span class="o">!==</span> <span class="k">NULL</span> <span class="o">&amp;&amp;</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$monster</span><span class="p">,</span> <span class="s2">"flag"</span><span class="p">)</span> <span class="o">===</span> <span class="nx">False</span><span class="p">)</span>
+	<span class="k">if</span><span class="p">(</span><span class="nv">$monster</span> <span class="o">!==</span> <span class="kc">NULL</span> <span class="o">&amp;&amp;</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$monster</span><span class="p">,</span> <span class="s2">"flag"</span><span class="p">)</span> <span class="o">===</span> <span class="kc">False</span><span class="p">)</span>
 		<span class="k">include</span><span class="p">(</span><span class="nv">$monster</span><span class="p">);</span>
 	<span class="k">else</span>
 		<span class="k">echo</span> <span class="s2">"Select a monster to read his description."</span><span class="p">;</span>

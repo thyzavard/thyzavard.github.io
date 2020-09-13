@@ -370,25 +370,25 @@ btw this isn't the actual git server
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-<span class="o">@</span><span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
 	<span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">)</span>
 
 
-<span class="o">@</span><span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/login"</span><span class="p">)</span>
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/login"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
-	<span class="n">u</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"User-Agent"</span><span class="p">)</span>
+	<span class="n">u</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"User-Agent"</span><span class="p">)</span>
 
-	<span class="n">conn</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">pool_name</span><span class="o">=</span><span class="s">"poolofagents"</span><span class="p">,</span>
+	<span class="n">conn</span> <span class="o">=</span> <span class="n">mysql</span><span class="p">.</span><span class="n">connector</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">pool_name</span><span class="o">=</span><span class="s">"poolofagents"</span><span class="p">,</span>
 					<span class="n">pool_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
 					<span class="o">**</span><span class="n">dbconfig</span><span class="p">)</span>
 
-	<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+	<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
 
-	<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT * FROM Agents WHERE UA='</span><span class="si">%</span><span class="s">s'"</span><span class="o">%</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">multi</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">with_rows</span><span class="p">:</span>
-			<span class="n">res</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-			<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+	<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT * FROM Agents WHERE UA='%s'"</span><span class="o">%</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">multi</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">r</span><span class="p">.</span><span class="n">with_rows</span><span class="p">:</span>
+			<span class="n">res</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">fetchall</span><span class="p">()</span>
+			<span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 			<span class="k">break</span>
 
 
@@ -400,10 +400,10 @@ btw this isn't the actual git server
 		<span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"login.html"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s">"hey! close, but no bananananananananana!!!! (there are many secret agents of course)"</span><span class="p">)</span>
 
 
-	<span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"login.html"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s">"Welcome, </span><span class="si">%</span><span class="s">s"</span><span class="o">%</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+	<span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"login.html"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s">"Welcome, %s"</span><span class="o">%</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-	<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">'0.0.0.0'</span><span class="p">)</span>
+	<span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="s">'0.0.0.0'</span><span class="p">)</span>
 </code></pre></div></div>
 <p>La <em>difficulté</em> est qu’il faut que le résultat de la requête comporte plus d’un résultat. Ce que nous permet de faire le payload suivant: <code class="language-plaintext highlighter-rouge">'OR 1 LIMIT 2,1 #</code></p>
 
