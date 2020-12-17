@@ -1,18 +1,23 @@
 ---
-title: Comment recompiler Vim avec Arch Build System
+title: Recompiler Vim avec Arch Build System
 excerpt: Utilisation d'Arch Build System pour recompiler un paquet existant pour le modifier et l'adapter à ses besoins.
 tags: [ABS, makepkg, PKGBUILD]
 categories: Articles
 comments: true
 ---
 
+
 # Introduction
 
-Un bon matin, j'ai voulu modifier ma configuration `Vim` en ajoutant différents plugins pour me simplifier la vie lors de développement Python, j'ai donc voulu installer le fameux plugin [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) permettant de faire de l'autocomplétion directement dans `Vim`.     
-Mais les choses ne se sont pas passées comme prévues et cela m'a pris bien plus de temps que prévu. 
+Lors de l'installation du plugin d'autocompletion [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) pour `vim`, j'ai fais face à un problème pour le moins inattendu.   
 <br>
-Ce billet est plus une note à moi-même, que je ressortirai si un jour je re-recontre un problème similaire. Mais si cela peut servir à des personnes qui tomberont sur le même problème que moi, c'est tant mieux ! :)
+L'installation du plugin `YouCompleteMe` s'est déroulée sans problème apparent. Mais lorsque j'ai voulu vérifier de son bon fonctionnement, l'erreur suivante est apparue à l'ouverture de `Vim` :
 
+```
+$ vim file.py
+YouCompleteMe unavailable: unable to load Python.
+Press ENTER or type command to continue
+```
 
 > Au cours de ce billet, nous allons aborder plusieurs points :
 > * Comment vérifier les modules Python supportés par `Vim`
@@ -21,21 +26,12 @@ Ce billet est plus une note à moi-même, que je ressortirai si un jour je re-re
 > * Comment build un paquet à l'aide de `makepkg`
 > * Comment gérer les conflits lors des mises à jours du système
 
-# Problème initial
-
-L'installation du plugin `YouCompleteMe` s'est déroulée sans soucis. Mais lorsque j'ai voulu m'assurer de son bon fonctionnement, l'erreur suivante est apparue à l'ouverture de `Vim` :
-
-```
-$ vim file.py
-YouCompleteMe unavailable: unable to load Python.
-Press ENTER or type command to continue
-```
 
 ## Vérification des modules Python supportés par Vim
 
-Après quelques recherches, j'ai compris que ma version de `Vim` était compilée pour supporter Python 2 et Python 3. Or, YouCompleteMe ne supporte plus Python 2, d'où l'apparition de l'erreur.  
+Au final, il s'avère que ma version de `Vim` était compilée pour supporter Python 2 et Python 3. Hors, YouCompleteMe ne supporte plus Python 2, d'où l'apparition de l'erreur.  
 <br>
-Il est possible de vérifier cela grâce à la commande `vim --version`, qui permet de voir quelles fonctionnalités sont inclues ou non dans notre version de `Vim` : 
+Il est possible de vérifier cela grâce à la commande `vim --version`, qui permet de voir les fonctionnalités qui sont inclues ou non dans notre version de `Vim` : 
 
 ```
 $ vim --version 
@@ -75,17 +71,10 @@ Huge version without GUI.  Features included (+) or not (-):
 +eval              +mouse_gpm         +statusline        -xsmp
 +ex_extra          -mouse_jsbterm     -sun_workshop      -xterm_clipboard
 +extra_search      +mouse_netterm     +syntax            -xterm_save
-   system vimrc file: "/etc/vimrc"
-     user vimrc file: "$HOME/.vimrc"
- 2nd user vimrc file: "~/.vim/vimrc"
-      user exrc file: "$HOME/.exrc"
-       defaults file: "$VIMRUNTIME/defaults.vim"
-  fall-back for $VIM: "/usr/share/vim"
-Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1       
-Linking: gcc   -L. -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,-E -Wl,-rpath,/usr/lib/perl5/5.32/core_perl/CORE  -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now -L/usr/local/lib -Wl,--as-needed -o vim        -lm -ltinfo -lelf    -lacl -lattr -lgpm -ldl   -Wl,-E -Wl,-rpath,/usr/lib/perl5/5.32/core_perl/CORE -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now -fstack-protector-strong -L/usr/local/lib  -L/usr/lib/perl5/5.32/core_perl/CORE -lperl -lpthread -ldl -lm -lcrypt -lutil -lc   -L/usr/lib -ltclstub8.6 -ldl -lz -lpthread -lm
+[...]
 ```
 
-Avec un `grep`, on peut voir que pour mon cas, les fonctionnalités `+python/dyn` (Python 2) et `+python3/dyn` (Python 3) sont activées.
+On peut voir que pour mon cas, les fonctionnalités `+python/dyn` (Python 2) et `+python3/dyn` (Python 3) sont activées.
 
 ```
 $ vim --version | grep python
