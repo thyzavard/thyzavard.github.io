@@ -6,6 +6,12 @@ categories: Articles
 comments: true
 ---
 
+> Au cours de ce billet, nous allons aborder plusieurs points :
+> * Comment vérifier les modules Python supportés par `Vim`
+> * Comment télécharger les fichiers sources d'un paquet existant
+> * Comment modifier un fichier PKGBUILD
+> * Comment build un paquet à l'aide de `makepkg`
+> * Comment gérer les conflits lors des mises à jours du système
 
 # Introduction
 
@@ -15,13 +21,6 @@ $ vim file.py
 YouCompleteMe unavailable: unable to load Python.
 Press ENTER or type command to continue
 ```  
-
-> Au cours de ce billet, nous allons aborder plusieurs points :
-> * Comment vérifier les modules Python supportés par `Vim`
-> * Comment télécharger les fichiers sources d'un paquet existant
-> * Comment modifier un fichier PKGBUILD
-> * Comment build un paquet à l'aide de `makepkg`
-> * Comment gérer les conflits lors des mises à jours du système
 
 ## Vérification des modules Python supportés par Vim
 
