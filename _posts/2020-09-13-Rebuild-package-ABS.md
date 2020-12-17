@@ -9,15 +9,12 @@ comments: true
 
 # Introduction
 
-Lors de l'installation du plugin d'autocompletion [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) pour `vim`, j'ai fais face à un problème pour le moins inattendu.   
-<br>
-L'installation du plugin `YouCompleteMe` s'est déroulée sans problème apparent. Mais lorsque j'ai voulu vérifier de son bon fonctionnement, l'erreur suivante est apparue à l'ouverture de `Vim` :
-
+Lors de l'installation du plugin d'autocompletion [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), j'ai rencontré l'erreur au démarrage de `Vim` :  
 ```
 $ vim file.py
 YouCompleteMe unavailable: unable to load Python.
 Press ENTER or type command to continue
-```
+```  
 
 > Au cours de ce billet, nous allons aborder plusieurs points :
 > * Comment vérifier les modules Python supportés par `Vim`
@@ -25,7 +22,6 @@ Press ENTER or type command to continue
 > * Comment modifier un fichier PKGBUILD
 > * Comment build un paquet à l'aide de `makepkg`
 > * Comment gérer les conflits lors des mises à jours du système
-
 
 ## Vérification des modules Python supportés par Vim
 
