@@ -1,0 +1,11 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+
+    {{ if isset .Params "photography_categories" }}
+        {{ partial "slides/menu" (dict "photography_categories" .Params.photography_categories) }}
+    {{ end }}
+
+{{ end }}
