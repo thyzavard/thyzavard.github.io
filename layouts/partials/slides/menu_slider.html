@@ -27,31 +27,33 @@
                 {{ $resizer := "1000x r0" }}
                 {{ $img = $img.Resize $resizer }}
 
-                <a class="project-cover js-project-cover-touch hold-space" href="{{ $link }}">
-                    <div class="cover-content-container">
-                        <div class="cover-image-wrap">
-                            <div class="cover-image">
-                                <div class="cover cover-normal">
-            <!--<div class="image-box {{ if eq ($.scratch.Get "columnsCount") 1 }} alittle {{ end }}">-->
-                                    <img
-                                    src="{{ $img.RelPermalink }}"
-                                    loading="lazy"
-                                    width="{{ $img.Width }}"
-                                    height="{{ $img.Height }}"
-                                    sizes="(max-width: 540px) 100vw, (max-width: 768px) 50vw, calc(100vw / 3)"
-                                    />
+                <div class="center">
+                    <div class="image-box-menu {{ if eq ($.scratch.Get "columnsCount") 1 }} alittle {{ end }}">
+                        <a class="project-cover js-project-cover-touch {{ if eq ($.scratch.Get "columnsCount") 1 }} center-mobile {{ end }}" href="{{ $link }}">
+                            <div class="cover-content-container">
+                                <div class="cover-image-wrap">
+                                    <div class="cover-image center">
+                                        <div class="cover cover-normal">
+                                            <img
+                                            src="{{ $img.RelPermalink }}"
+                                            loading="lazy"
+                                            width="{{ $img.Width }}"
+                                            height="{{ $img.Height }}"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="details-wrap">
+                                    <div class="details">
+                                    <div class="details-inner">
+                                        <div class="title preserve-whitespace">{{ $pathWithoutExt }}</div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="details-wrap">
-                            <div class="details">
-                              <div class="details-inner">
-                                  <div class="title preserve-whitespace">{{ $pathWithoutExt }}</div>
-                              </div>
-                            </div>
-                          </div>
+                        </a>
                     </div>
-                </a>
+                </div>
             {{ end }}
         </div>
     {{ end }}

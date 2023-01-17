@@ -269,6 +269,17 @@ section .column img {
     transform: scale(1.03);
 }
 
+.image-box-menu {
+    margin-top: 20px;
+    overflow: hidden;
+    border: 0px;
+}
+
+.image-box-menu img {
+    display: block;
+    height: auto;
+}
+
 .slide-imgs .columns {
     margin: unset;
 }

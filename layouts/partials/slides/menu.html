@@ -1,31 +1,17 @@
 {{ $portfolioScratch := newScratch }}
+{{ $portfolioMobileScratch := newScratch }}
 
 {{ $posts := slice }}
 {{ range $.photography_categories }}
     {{ $posts = $posts | append . }}
 {{ end }}
 
-{{ $columnsCount := 3}}
-{{ $portfolioScratch.Set "columnsCount" $columnsCount }}
-{{ $portfolioScratch.Set "posts" $posts }}
-{{ $loopCount := 1 }}
-{{ $loopFlag := 0 }}
-
-{{ range $i, $post := $posts }}
-    {{ if gt $loopFlag (sub $columnsCount 1) }}
-        {{ $loopFlag = 0}}
-    {{ end }}
-    {{ range $index, $num := (seq $columnsCount) }}
-        {{ if eq (sub $loopFlag $index) 0 }}
-            {{ $column := $portfolioScratch.Get (printf "%d" $index) }}
-            {{ $column = $column | append (dict "post" $post "loopCount" $loopCount) }}
-            {{ $portfolioScratch.Set (printf "%d" $index) $column }}
-        {{ end }}
-    {{ end }}
-    {{ $loopCount = (add $loopCount 1) }}
-    {{ $loopFlag = (add $loopFlag 1) }}
-{{ end }}
+{{ partial "slides/menu_columns" (dict  "portfolioScratch" $portfolioScratch "portfolioMobileScratch" $portfolioMobileScratch "posts" $posts "ctx" .) }}
 
 <section id="desktop" class="section work">
     {{ partial "slides/menu_slider" (dict "scratch" $portfolioScratch "type" "desktop" "ctx" .) }}
+</section>
+
+<section id="mobile" class="section work">
+    {{ partial "slides/menu_slider" (dict "scratch" $portfolioMobileScratch "type" "mobile" "ctx" .) }}
 </section>

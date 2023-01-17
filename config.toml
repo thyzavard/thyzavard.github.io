@@ -99,7 +99,7 @@ enableEmoji = true
       pre = "🗿"
       # you can add extra information after the name (HTML format is supported), such as icons
       post = ""
-      typeit = true
+      typeit = false
 
   # List (category or tag) page config
   [params.list]
