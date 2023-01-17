@@ -6,12 +6,12 @@
     {{ $posts = $posts | append . }}
 {{ end }}
 
-{{ partial "slides/menu_columns" (dict  "portfolioScratch" $portfolioScratch "portfolioMobileScratch" $portfolioMobileScratch "posts" $posts "ctx" .) }}
+{{ partial "slides/menu_columns" (dict  "portfolioScratch" $portfolioScratch "portfolioMobileScratch" $portfolioMobileScratch "posts" $posts "ctx" $.ctx) }}
 
 <section id="desktop" class="section work">
-    {{ partial "slides/menu_slider" (dict "scratch" $portfolioScratch "type" "desktop" "ctx" .) }}
+    {{ partial "slides/menu_slider" (dict "scratch" $portfolioScratch "type" "desktop" "permalink" $.permalink "ctx" $.ctx) }}
 </section>
 
 <section id="mobile" class="section work">
-    {{ partial "slides/menu_slider" (dict "scratch" $portfolioMobileScratch "type" "mobile" "ctx" .) }}
+    {{ partial "slides/menu_slider" (dict "scratch" $portfolioMobileScratch "type" "mobile" "permalink" $.permalink "ctx" $.ctx) }}
 </section>

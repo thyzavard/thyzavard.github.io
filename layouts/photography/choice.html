@@ -5,7 +5,7 @@
 {{- define "content" -}}
 
     {{ if isset .Params "photography_categories" }}
-        {{ partial "slides/menu" (dict "photography_categories" .Params.photography_categories) }}
+        {{ partial "slides/menu" (dict "photography_categories" .Params.photography_categories "permalink" .Page.RelPermalink "ctx" .) }}
     {{ end }}
 
 {{ end }}
