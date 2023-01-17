@@ -557,7 +557,7 @@ plume:
 hackthebox:
   Weight: 71
   Title: Hack The Box
-  Prefix: https://app.hackthebox.com/profile/
+  Prefix: https://app.hackthebox.com/users/
   Icon:
     Simpleicons: hackthebox
 

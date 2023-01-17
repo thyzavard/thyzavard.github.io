@@ -127,6 +127,7 @@ enableEmoji = true
   # Social config
   [params.social]
     Github = "thyzavard"
+    HackTheBox = "106328"
     RootMe = "thyz"
     RSS = true
 
