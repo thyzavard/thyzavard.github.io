@@ -31,13 +31,12 @@
                         {{ end }}
                     {{ end }}
                     {{ $img = $img.Resize $resizer }}
+                    
                     <div class="center">
                         <div class="image-box {{ if eq ($.scratch.Get "columnsCount") 1 }} alittle {{ end }}">
                             <img
-                            src="{{ $img.RelPermalink }}"
+                            src="{{ index (index $row "post").Params.images 0 }}"
                             loading="lazy"
-                            width="{{ $img.Width }}"
-                            height="{{ $img.Height }}"
                             onclick="openSlider();currentSlide({{ (index $row "loopCount") }})"
                             />
                         </div>
